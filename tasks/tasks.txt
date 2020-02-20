@@ -1,0 +1,63 @@
+1. Получить данные:
+    1 - страны (массив countries)
+    2 - банк (массив nationalBank)
+
+
+2. Сопоставить массивы:
+    1 - найти совпадения по ключам:
+          ???  - nationalBank.r030 (string) === countries.numericCode (number);
+          ???  - nationalBank.cc (string) === countries.cioc (string);
+
+    2 - результат - новый массив (exchangeRate) на основании совпадений содержащий:
+            - массив обьектов c полями:
+                    
+        ===>    из nationalBank:
+                ->  -  "r030": 124,
+                    -  "txt": "Канадський долар",
+                    -  "rate": 18.5437,
+                    -  "cc": "CAD",
+                    -  "exchangedate": "20.02.2020"
+
+        ===>    из countries:
+                    - "name": "Canada",
+                    - "region": "Americas",
+                    - "subregion": "Northern America",
+                    - "nativeName": "Canada",
+                ->  - "numericCode": "124",
+                    - "currencies": [
+                        {
+                            "code": "CAD",
+                            "name": "Canadian dollar",
+                            "symbol": "$"
+                        }
+                    - "translations": {
+                            "de": "Kanada",
+                            "es": "Canadá",
+                            "fr": "Canada",
+                            "ja": "カナダ",
+                            "it": "Canada",
+                            "br": "Canadá",
+                            "pt": "Canadá",
+                            "nl": "Canada",
+                            "hr": "Kanada",
+                            "fa": "کانادا"
+                        },
+                    - "flag": "https://restcountries.eu/data/can.svg",
+                    -  "cioc": "CAN"
+
+3. Сверстать:
+    1 header:
+        - лого
+        - данные успешно загружены | нет связи с серверами
+        - дата курса из nationalBank.exchangedate
+        - ??? ваше местоположение (страна флаг)
+    2 main:
+        - вывести в ???карточках поля из массива exchangeRate:
+            - флаг
+            - название страны
+            - код валюты
+            - курс (можно с датой)
+    3 footer:
+        - copyright и текущий год
+    
+         
