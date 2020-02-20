@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import Header from '../header';
-import Footer from '../footer'
+import Footer from '../footer';
+import Card from '../card';
+import Table from '../table';
+
+import './app.css'
 
 const urlCountries = 'http://restcountries.eu/rest/v2/all';
 const urlExchange = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
@@ -32,16 +36,17 @@ function App() {
     fetchData();
     }, [])
 
-    console.log(exchangeRate);
-    
-
     return (
     <div className="App">
-        <Header />
-            <h3>This is App section</h3>
+        <Header exchangeRate = {exchangeRate}/>
+            <main>
+                <div className = "container cards-container">
+                    {/* <Card /> */}
+                    <Table exchangeRate = {exchangeRate} /> 
+                </div> 
+            </main>
         <Footer />
     </div> 
-  
   );
 }
 
