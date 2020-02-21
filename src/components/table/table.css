@@ -6,10 +6,15 @@ table {
 }
 
 thead {
-    cursor: pointer;
     color: rgb(209, 194, 194);
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+thead th :hover {
+    cursor: pointer;
+    color: orange;
+    transform: scale(1.1);
 }
 
 tbody tr {
@@ -36,7 +41,7 @@ tbody tr {
 }
 
 .th-country {
-    text-align: left;
+    /* text-align: left; */
 }
 
 .flag-img {
@@ -45,6 +50,14 @@ tbody tr {
     overflow: hidden;
     width: 50px;
     height: 35px;
+}
+
+.flag-img:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+    -webkit-box-shadow: 0px 2px 16px 0px rgba(255,170,0,1);
+    -moz-box-shadow: 0px 2px 16px 0px rgba(255,170,0,1);
+    box-shadow: 0px 2px 16px 0px rgba(255,170,0,1);
 }
 
 .flag-img img {

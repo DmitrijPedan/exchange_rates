@@ -5,7 +5,7 @@ import './card.css'
 function Card (props) {
 
     return (
-        <div className = "currency-card">          
+        <div className = "currency-card trans-min">          
             <div className = "top">
                  <div className = "currency-code">
                     <p>{props.metalItem.cc}</p>

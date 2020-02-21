@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext }  from 'react';
+
+import Context from '../app/context'
 
 function TableRow (props) {
+
+    const { showModale } = useContext(Context);
+    
     return (
         <tr >
             <th>
-                <div className ="flag-img"> 
+                <div className ="flag-img trans-min" title = "See more ..." onClick = {() => showModale(props.row)}> 
                     <img  src={props.row.flag} alt="flag"/>
                 </div>
             </th>

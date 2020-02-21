@@ -9,9 +9,9 @@ function Table (props) {
             <thead>
                 <tr>
                 <th></th>
-                <th className = "th-country">Country</th>
-                <th>Currency</th>
-                <th>Rate to UAH</th>
+                <th><p className = "trans-min">Country</p></th>
+                <th><p className = "trans-min">Currency</p></th>
+                <th><p className = "trans-min">Rate to UAH</p></th>
                 </tr>
             </thead>
             <tbody>
