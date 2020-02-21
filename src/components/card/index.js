@@ -2,21 +2,18 @@ import React from 'react';
 
 import './card.css'
 
-function Card () {
+function Card (props) {
 
     return (
         <div className = "currency-card">          
             <div className = "top">
-                <div className = "flag">
-                    <img src="https://restcountries.eu/data/ata.svg" alt="flag"/>
-                </div>
-                <div className = "currency-code">
-                    <p>USD</p>
+                 <div className = "currency-code">
+                    <p>{props.metalItem.cc}</p>
                 </div>
             </div>
             <div className = "bottom">
-                <h2>Canada</h2>
-                <p>16.2055</p>
+                <h4>{props.metalItem.txt}</h4>
+                <p>{props.metalItem.rate}  UAH</p>
             </div>
       </div>
     )

@@ -9,14 +9,12 @@ header {
 }
 
 .header-menu {
-    padding: 15px;
+    padding: 15px 0px;
     display: flex;
     justify-content: space-between;
 }
 
-.header-menu > div {
-    margin: 0px 20px;
-}
+
 
 .header-logo {
     color: rgb(255, 255, 255);
