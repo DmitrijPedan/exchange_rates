@@ -21,18 +21,13 @@ function App() {
     useEffect(() => {
         async function fetchData () {
         try {
-            const resCountries = await fetch (urlCountries);
-            const dataCountries = await resCountries.json();
-            const resExchange = await fetch (urlExchange);
-            const dataExchange = await resExchange.json();
+            const respCountries = await fetch (urlCountries);
+            const dataCountries = await respCountries.json();
+            const respExchange = await fetch (urlExchange);
+            const dataExchange = await respExchange.json();
             setMetals(dataExchange.filter(el => el.cc[0] === 'X' && el.cc !== 'XDR'));
             let result = [];
-            for (let i = 0; i < dataExchange.length; i++) {
-              for (let j = 0; j < dataCountries.length; j++) {
-                if (dataExchange[i].cc === dataCountries[j].currencies[0].code) 
-                  result.push(Object.assign(dataCountries[j], dataExchange[i]))
-              } 
-            }
+            dataExchange.map(curr => dataCountries.map(country => (curr.cc === country.currencies[0].code) ? result.push(Object.assign(country, curr)) : null))
             setExchangeRate(result)
         } catch (err) {
             console.error(err);
