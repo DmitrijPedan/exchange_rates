@@ -4,7 +4,6 @@ import './index.css';
 import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 
-
 document.title = "Exchange Rates"
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -12,10 +12,10 @@
             - массив обьектов c полями:
                     
         ===>    из nationalBank:
-                ->  -  "r030": 124,
+                    -  "r030": 124,
                     -  "txt": "Канадський долар",
                     -  "rate": 18.5437,
-                    -  "cc": "CAD",
+                ->  -  "cc": "CAD",
                     -  "exchangedate": "20.02.2020"
 
         ===>    из countries:
@@ -23,10 +23,10 @@
                     - "region": "Americas",
                     - "subregion": "Northern America",
                     - "nativeName": "Canada",
-                ->  - "numericCode": "124",
+                    - "numericCode": "124",
                     - "currencies": [
                         {
-                            "code": "CAD",
+                ->          "code": "CAD",
                             "name": "Canadian dollar",
                             "symbol": "$"
                         }
@@ -52,12 +52,16 @@
         - дата курса из nationalBank.exchangedate
         - ??? ваше местоположение (страна флаг)
     2 main:
-        - вывести в ???карточках поля из массива exchangeRate:
+        - вывести карточки с ценными металлами:
+            - курс 
+            - название металла ...
+        - вывести в таблице поля из массива exchangeRate:
             - флаг
+                - при нажатии на флаг:
+                    - модальное окно с подробной инфой о стране
             - название страны
             - код валюты
             - курс (можно с датой)
     3 footer:
-        - copyright и текущий год
-    
+        - copyright и текущий год 
          

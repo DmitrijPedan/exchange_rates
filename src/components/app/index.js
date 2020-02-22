@@ -1,34 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import Context from '../app/context'
-
 import Header from '../header';
+import Content from '../content';
+import NoData from '../no_data';
 import Footer from '../footer';
-import Card from '../card';
-import Table from '../table';
-import Modale from '../modale';
-
 import './app.css'
-
-const urlCountries = 'http://restcountries.eu/rest/v2/all';
-const urlExchange = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
 
 function App() {
 
     const [exchangeRate, setExchangeRate] = useState([]);
     const [metals, setMetals] = useState([]);
-    const [modalStatus, setModalStatus] = useState(false);
-     
+    const [refresh, setRefresh] = useState(true);
+         
     useEffect(() => {
         async function fetchData () {
         try {
-            const respCountries = await fetch (urlCountries);
+            const respCountries = await fetch ('http://restcountries.eu/rest/v2/all');
             const dataCountries = await respCountries.json();
-            const respExchange = await fetch (urlExchange);
+            const respExchange = await fetch ('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json');
             const dataExchange = await respExchange.json();
-            setMetals(dataExchange.filter(el => el.cc[0] === 'X' && el.cc !== 'XDR'));
             let result = [];
             dataExchange.map(curr => dataCountries.map(country => (curr.cc === country.currencies[0].code) ? result.push(Object.assign(country, curr)) : null))
-            setExchangeRate(result)
+            setExchangeRate(result);
+            setMetals(dataExchange.filter(el => el.cc[0] === 'X' && el.cc !== 'XDR'));
         } catch (err) {
             console.error(err);
         } 
@@ -36,38 +29,23 @@ function App() {
     fetchData();
     }, [])
     
-    const showModale = (row) => setModalStatus(row)
-    const closeModale = () => setModalStatus(false)
-
-    if (exchangeRate.length > 0) {
-        return (
-            <Context.Provider value = { {showModale: showModale, closeModale: closeModale} }>
-                <div className="App">
-                    <Header exchangeRate = {exchangeRate}/>
-                        <main>
-                            { modalStatus ? <Modale item = {modalStatus} /> : null}
-                            <div className = "container ">
-                                <div className = "cards-container">
-                                    {metals.map((el, i) => <Card key = {i} metalItem = {el}/>)}
-                                </div>
-                                <div className ="table-container">
-                                    <Table exchangeRate = {exchangeRate} /> 
-                                </div>
-                            </div> 
-                        </main>
-                    <Footer />
-                </div> 
-             </Context.Provider>
-          );
+    const sortHandler = (arr, key) => {
+        arr.sort((a,b) => {
+            if (arr[0][key] > arr[arr.length - 1][key]) {
+                return a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0;  
+            }
+            else {
+                return a[key] < b[key] ? 1 : a[key] > b[key] ? -1 : 0;
+            }
+        });
+        refresh ? setRefresh(false) : setRefresh(true);
     }
+    
     return (
-        <div className="App">
+        <div className="App" >
             <Header exchangeRate = {exchangeRate}/>
                 <main>
-                    <div className = "container ">
-                        <p className = "no-data">data is not available</p>
-                        <button className = "try-again trans-max" onClick = {() => window.location.reload()}>Try again</button>
-                    </div> 
+                { exchangeRate.length > 0 ? <Content exchangeRate = {exchangeRate} metals = {metals} sortHandler = {sortHandler}/> : <NoData /> }
                 </main>
             <Footer />
         </div> 

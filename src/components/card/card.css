@@ -4,6 +4,8 @@
     border: 1px solid gray;;
     border-radius: 8px;
     background-color: #393b3d;
+    /* background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9) ), url(./img/metalls.jpg);
+    background-size: cover; */
     -webkit-box-shadow: 0px 0px 7px 0px rgba(186,149,186,1);
     -moz-box-shadow: 0px 0px 7px 0px rgba(186,149,186,1);
     box-shadow: 0px 0px 7px 0px rgba(186,149,186,1);
@@ -22,7 +24,6 @@
     color: rgb(255, 153, 0);
     font-weight: 500;
 }
-
 
 .top {
     height: 25%;
