@@ -14,7 +14,7 @@ function App() {
     useEffect(() => {
         async function fetchData () {
         try {
-            const respCountries = await fetch ('http://restcountries.eu/rest/v2/all');
+            const respCountries = await fetch ('https://restcountries.eu/rest/v2/all');
             const dataCountries = await respCountries.json();
             const respExchange = await fetch ('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json');
             const dataExchange = await respExchange.json();
