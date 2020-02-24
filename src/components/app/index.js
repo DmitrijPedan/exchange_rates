@@ -25,12 +25,12 @@ function App() {
         } catch (err) {
             console.error(err);
         } 
-    } 
+    }     
     fetchData();
     }, [])
     
     const sortHandler = (arr, key) => {
-        arr.sort((a,b) => {
+        let result = arr.sort((a,b) => {
             if (arr[0][key] > arr[arr.length - 1][key]) {
                 return a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0;  
             }
@@ -38,9 +38,11 @@ function App() {
                 return a[key] < b[key] ? 1 : a[key] > b[key] ? -1 : 0;
             }
         });
-        refresh ? setRefresh(false) : setRefresh(true);
+        console.log(result[0].name);
+        setExchangeRate(result);
+        setRefresh(!refresh);
     }
-    
+ 
     return (
         <div className="App" >
             <Header exchangeRate = {exchangeRate}/>

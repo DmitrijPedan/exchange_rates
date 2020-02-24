@@ -10,3 +10,7 @@
 .close:hover {
     background-color: red;
 }
+
+.close:active {
+    transform: scale(0.9);
+}

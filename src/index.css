@@ -23,6 +23,13 @@ body {
   text-align: center;
 }
 
+@media (min-width: 300px) and (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+}
+
+
 h3 {
   color: black;
 }

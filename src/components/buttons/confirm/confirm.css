@@ -9,3 +9,7 @@
     background-color: orange;
     color: #2c2e30;
 }
+
+.close:active {
+    transform: scale(0.9);
+}

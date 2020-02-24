@@ -1,0 +1,7 @@
+https://countries-exchange.herokuapp.com
+
+$ heroku login
+
+$ heroku git:clone -a countries-exchange
+
+$ git push heroku master

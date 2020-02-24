@@ -13,12 +13,12 @@ function Modale (props) {
     };
 
     return (
-        <div className = "modal-overlay" onClick = {props.closeModale}>
+        <div className = "modal-overlay">
             <div style = {flagBackground} className = "modal-window">
                 <div className = "modal-header">
                         <p>{props.row.name}</p>
                         <div className = "close-btn">
-                            <CloseButton  action = {props.closeModale} />
+                            <CloseButton  action = {props.switchModale} />
                         </div>
                 </div>
                 <div className = "modal-body">
@@ -27,11 +27,11 @@ function Modale (props) {
                     <p>Capital: <span>{props.row.capital}</span></p>
                     <p>Population: <span>{props.row.population} peoples</span></p>
                     <p>Area: <span>{props.row.area} sq kilometers</span></p>
-                    <p>Languages: <span>{props.row.languages[0].name}</span></p>
-                    <p>Currensy: <span>{props.row.currencies[0].name}</span></p>
+                    <p>Languages: <span>{props.row.languages.map(el => el.name).join(', ')}</span></p>
+                    <p>Currensy: <span>{props.row.currencies.map(el => el.name).join(', ')}</span></p>
                 </div>
                 <div className = "modal-footer">
-                    <Button action = {props.closeModale} inside = {"Ok"}/>
+                    <Button action = {props.switchModale} inside = {"Ok"}/>
                 </div>
             </div>
         </div>
