@@ -10,15 +10,11 @@ function Content (props) {
         <div className = "container ">
             <h5>PrivatBank:</h5>
             <div className = "cards-container">
-                <div>
-                {props.privat.map((el, i) => <PrivatCard key = {i} priv = {el}/>)}
-                </div>
+                {props.privat.map((el, i) => <PrivatCard key = {i} priv = {el}/>)}  
             </div>
             <h5>Precious metals (NBU):</h5>
             <div className = "cards-container">
-                <div>
                 {props.metals.map((el, i) => <Card key = {i} metal = {el}/>)}
-                </div> 
             </div>
             <div className ="table-container">
                 <Table exchangeRate = {props.exchangeRate} sortHandler = {props.sortHandler}/> 

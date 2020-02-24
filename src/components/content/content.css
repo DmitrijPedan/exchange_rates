@@ -1,8 +1,8 @@
-.cards-container > div {
+.cards-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 h5 {
