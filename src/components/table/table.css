@@ -53,6 +53,7 @@ tbody tr {
     height: 35px;
 }
 
+
 .flag-img:hover {
     transform: scale(1.5);
     cursor: pointer;
@@ -66,3 +67,16 @@ tbody tr {
     height: 100%;
 }
 
+
+@media (min-width: 300px) and (max-width: 600px) {
+    .flag-img {
+        width: 40px;
+        height: 27px;
+    }
+    thead th p {
+        font-size: 14px;
+    }
+    .tbody th p {
+        font-size: 14px;
+    }
+}

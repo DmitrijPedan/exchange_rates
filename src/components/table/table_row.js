@@ -17,7 +17,7 @@ function TableRow (props) {
             </th>
             <td className = "td-country"> {props.row.name} </td>
             <td className = "td-currency"> {props.row.cc} <br/> <span> {props.row.txt} </span></td>
-            <td className = "td-rate"> {props.row.rate} </td>
+            <td className = "td-rate"> { Math.round((props.row.rate*100)) / 100} </td>
         </tr>
     )
 }

@@ -9,6 +9,7 @@ function App() {
 
     const [exchangeRate, setExchangeRate] = useState([]);
     const [metals, setMetals] = useState([]);
+    const [privat, setPrivat] = useState([]);
     const [refresh, setRefresh] = useState(true);
          
     useEffect(() => {
@@ -18,10 +19,15 @@ function App() {
             const dataCountries = await respCountries.json();
             const respExchange = await fetch ('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json');
             const dataExchange = await respExchange.json();
+            const resPrivat = await fetch ('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
+            const dataPrivat = await resPrivat.json();
             let result = [];
             dataExchange.map(curr => dataCountries.map(country => (curr.cc === country.currencies[0].code) ? result.push(Object.assign(country, curr)) : null))
             setExchangeRate(result);
             setMetals(dataExchange.filter(el => el.cc[0] === 'X' && el.cc !== 'XDR'));
+            setPrivat(dataPrivat);
+            console.log(dataPrivat);
+            
         } catch (err) {
             console.error(err);
         } 
@@ -47,7 +53,7 @@ function App() {
         <div className="App" >
             <Header exchangeRate = {exchangeRate}/>
                 <main>
-                { exchangeRate.length > 0 ? <Content exchangeRate = {exchangeRate} metals = {metals} sortHandler = {sortHandler}/> : <NoData /> }
+                {exchangeRate.length > 0 ? <Content exchangeRate = {exchangeRate} metals = {metals} privat = {privat} sortHandler = {sortHandler}/> : <NoData /> }
                 </main>
             <Footer />
         </div> 

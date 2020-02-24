@@ -12,7 +12,7 @@ function Card (props) {
             </div>
             <div className = "bottom">
                 <h4>{props.metal.txt}</h4>
-                <p>{props.metal.rate}  UAH</p>
+                <p>{ Math.round((props.metal.rate*100)) / 100}  UAH</p>
             </div>
       </div>
     )
