@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../card';
-import PrivatCard from '../privat';
+import Card from '../card_metall';
+import PrivatCard from '../card_privat';
 import Table from '../table';
 import './content.css'
 
@@ -17,7 +17,7 @@ function Content (props) {
                 {props.metals.map((el, i) => <Card key = {i} metal = {el}/>)}
             </div>
             <div className ="table-container">
-                <Table exchangeRate = {props.exchangeRate} sortHandler = {props.sortHandler}/> 
+                <Table exchangeRate = {props.exchangeRate} sortArray = {props.sortArray}/> 
         </div>
     </div> 
     )
