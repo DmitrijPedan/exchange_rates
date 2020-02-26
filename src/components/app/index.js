@@ -24,10 +24,12 @@ function App() {
                 const countries = await fetchDataArray(urlConstants.REST_COUNTRIES);
                 const exchangeNBU = await fetchDataArray(urlConstants.NBU_EXCHANGE);
                 const exchangePrivat = await fetchDataArray(urlConstants.PRIVAT_EXCHANGE);
-                setExchangeRate(countries.filter(elem => exchangeNBU.find(el => el.cc === elem.currencies[0].code)));
+                let result = []
+                exchangeNBU.forEach(elem => countries.forEach(el => (elem.cc === el.currencies[0].code) ? result.push(Object.assign(elem, el)) : null));
+                setExchangeRate(result);
                 setMetals(exchangeNBU.filter(el => el.cc[0] === 'X' && el.cc !== 'XDR'));
                 setPrivat(exchangePrivat);
-                setLoaded(true) 
+                setLoaded(true);
             } catch (err) {
                 console.error('Error in App:', err);
             }

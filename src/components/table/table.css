@@ -79,4 +79,7 @@ tbody tr {
     .tbody th p {
         font-size: 14px;
     }
+    .td-country {
+        font-size: 14px;
+    }
 }

@@ -6,7 +6,7 @@ function TableRow (props) {
     const [modalStatus, setModalStatus] = useState(false);
 
     const switchModale = () => setModalStatus(!modalStatus)
-
+        
     return (
         <tr>
             <th>
