@@ -1,5 +1,5 @@
 export const sortArray = (arr, key) => {
-    arr.sort((a,b) => {
+    return arr.sort((a,b) => {
         if (arr[0][key] > arr[arr.length - 1][key]) {
             return a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0;  
         }
