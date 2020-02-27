@@ -18,7 +18,6 @@
     -webkit-box-shadow: 0px 0px 7px 0px rgba(186,149,186,1);
     -moz-box-shadow: 0px 0px 7px 0px rgba(186,149,186,1);
     box-shadow: 0px 0px 7px 0px rgba(186,149,186,1);
-    transition: ease-in 1s;
 }
 
 @media (min-width: 601px) and (max-width: 900px) {

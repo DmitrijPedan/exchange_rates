@@ -25,12 +25,6 @@ function App() {
                 const exchangeNBU = await fetchDataArray(urlConstants.NBU_EXCHANGE);
                 const exchangePrivat = await fetchDataArray(urlConstants.PRIVAT_EXCHANGE);
                 let result = []
-                // dataExchange.map((currency, ind) => dataCountries.map((country, i) => {
-                //     if (currency.cc === country.currencies[0].code) {
-                //       result.push(Object.assign(country, currency))
-                //     } 
-                //   }
-                // ))
                 exchangeNBU.forEach(elem => countries.forEach(el => (elem.cc === el.currencies[0].code) ? result.push(Object.assign(el, elem)) : null));
                 setExchangeRate(result);
                 setMetals(exchangeNBU.filter(el => el.cc[0] === 'X' && el.cc !== 'XDR'));
@@ -43,6 +37,19 @@ function App() {
     fetchData();
     }, [])
 
+    async function Data () {
+        try {
+            const response = await fetch (`https://api.privatbank.ua/p24api/exchange_rates?json&date=20.02.2020`);
+            const data = await response.json();   
+            console.log(response);
+            console.log(data);
+          } catch (err) {
+            console.error(err);
+        } 
+    }
+    
+    Data();
+    
     const handler = (arr, key) => {
         sortArray(arr, key)
         setSort(!sort)
