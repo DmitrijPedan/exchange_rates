@@ -36,20 +36,7 @@ function App() {
     }     
     fetchData();
     }, [])
-
-    async function Data () {
-        try {
-            const response = await fetch (`https://api.privatbank.ua/p24api/exchange_rates?json&date=20.02.2020`);
-            const data = await response.json();   
-            console.log(response);
-            console.log(data);
-          } catch (err) {
-            console.error(err);
-        } 
-    }
-    
-    Data();
-    
+  
     const handler = (arr, key) => {
         sortArray(arr, key)
         setSort(!sort)
